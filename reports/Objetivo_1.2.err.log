@@ -1,0 +1,111 @@
+Traceback (most recent call last):
+  File "C:\Users\loren\miniconda3\envs\venv_py\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\loren\miniconda3\envs\venv_py\lib\site-packages\nbclient\client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\loren\miniconda3\envs\venv_py\lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "C:\Users\loren\miniconda3\envs\venv_py\lib\asyncio\base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "C:\Users\loren\miniconda3\envs\venv_py\lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\loren\miniconda3\envs\venv_py\lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\loren\miniconda3\envs\venv_py\lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+edad_intervals = [0, 49, 59, 79, 150]
+edad_labels = ['<50', '50-59', '60-79', '>80']
+datos.datos['edad_agrupada'] = pd.cut(datos.datos['edad_calculada'], bins=edad_intervals, labels=edad_labels, right=True)
+
+# Calcular frecuencias
+frecuencias = datos.datos['edad_agrupada'].value_counts().sort_index()
+tabla_frecuencias = pd.DataFrame({
+    'Intervalo': frecuencias.index.astype(str),
+    'Frecuencia': frecuencias.values
+})
+
+# Agrupaciones a evaluar
+agrupaciones = [
+    'sexo',
+    '¿tiene_antecedentes_con_padre?',
+    '¿tiene_antecedentes_con_madre?',
+    '¿tiene_antecedentes_con_herman?',
+    'diabetes mellitus',
+    'hipercolesterolemia',
+    'dislipidemia'
+]
+
+def plot_graphs():
+    # Gráfico 0: Boxplot de POC_hba1c(%) por grupos de edad
+    fig, ax = plt.subplots(figsize=(12, 8))
+    sns.boxplot(data=datos.datos, x='edad_agrupada', y='POC_hba1c(%)', ax=ax)
+    ax.set_title('Boxplot de POC_hba1c(%) por grupos de edad')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
+    # Gráfico 1: Histograma de edades agrupadas
+    fig, ax = plt.subplots(figsize=(12, 8))
+    sns.histplot(data=datos.datos, x='edad_calculada', hue='edad_agrupada', bins=10, kde=True, ax=ax)
+    ax.set_title('Histograma de edades agrupadas')
+    plt.tight_layout()
+    plt.show()
+
+    # Tabla 1: Frecuencias por intervalo de edad
+    fig, ax = plt.subplots(figsize=(12, 6))
+    ax.axis('tight')
+    ax.axis('off')
+    table_data = tabla_frecuencias.values
+    table_columns = tabla_frecuencias.columns
+    table_1 = table(ax, tabla_frecuencias, loc='center', colWidths=[0.2]*len(table_columns))
+    table_1.auto_set_font_size(False)
+    table_1.set_fontsize(10)
+    ax.set_title('Frecuencias por Intervalo de Edad')
+    plt.show()
+
+    # Tablas 2: Frecuencias agrupadas por variable
+    for agrupacion in agrupaciones:
+        tabla_agrupada = datos.datos.groupby([agrupacion, 'edad_agrupada']).size().reset_index(name='Frecuencia')
+        tabla_agrupada['edad_agrupada'] = tabla_agrupada['edad_agrupada'].astype(str)
+        tabla_pivotada = tabla_agrupada.pivot_table(
+            index='edad_agrupada',
+            columns=agrupacion,
+            values='Frecuencia',
+            fill_value=0
+        ).reset_index()
+
+        # Tabla 2: Frecuencias agrupadas por variable
+        fig, ax = plt.subplots(figsize=(12, 8))
+        ax.axis('tight')
+        ax.axis('off')
+        table_data_2 = tabla_pivotada.values
+        table_columns_2 = tabla_pivotada.columns
+        table_2 = table(ax, tabla_pivotada, loc='center', colWidths=[0.2]*len(table_columns_2))
+        table_2.auto_set_font_size(False)
+        table_2.set_fontsize(10)
+        ax.set_title(f'Frecuencias Agrupadas por {agrupacion}')
+        plt.show()
+
+# Llama a la función para generar todos los gráficos y tablas
+plot_graphs()
+------------------
+
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mNameError[0m                                 Traceback (most recent call last)
+Cell [1;32mIn[5], line 75[0m
+[0;32m     72[0m         plt[38;5;241m.[39mshow()
+[0;32m     74[0m [38;5;66;03m# Llama a la función para generar todos los gráficos y tablas[39;00m
+[1;32m---> 75[0m [43mplot_graphs[49m[43m([49m[43m)[49m
+
+Cell [1;32mIn[5], line 45[0m, in [0;36mplot_graphs[1;34m()[0m
+[0;32m     43[0m table_data [38;5;241m=[39m tabla_frecuencias[38;5;241m.[39mvalues
+[0;32m     44[0m table_columns [38;5;241m=[39m tabla_frecuencias[38;5;241m.[39mcolumns
+[1;32m---> 45[0m table_1 [38;5;241m=[39m [43mtable[49m(ax, tabla_frecuencias, loc[38;5;241m=[39m[38;5;124m'[39m[38;5;124mcenter[39m[38;5;124m'[39m, colWidths[38;5;241m=[39m[[38;5;241m0.2[39m][38;5;241m*[39m[38;5;28mlen[39m(table_columns))
+[0;32m     46[0m table_1[38;5;241m.[39mauto_set_font_size([38;5;28;01mFalse[39;00m)
+[0;32m     47[0m table_1[38;5;241m.[39mset_fontsize([38;5;241m10[39m)
+
+[1;31mNameError[0m: name 'table' is not defined
+
