@@ -1,0 +1,940 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Manejo de nuevas columnas &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '0.3.nuevas_cols';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Unión de Datos Nuevos" href="0.2.union.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Jbook CAIMED GRAFICOS
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1.Objetivo_1.1.html">Objetivo_1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.Objetivo_1.2.html">Objetivo_1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.Objetivo_2.1.html">Objetivo_2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4.Objetivo_3.html">Objetivo_3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resumen.html">Resumen de Proceso de Depuración de la Base de Datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0.1.Cambios.html">Proceso interno de nuevos cambios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0.2.union.html">Unión de Datos Nuevos</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Manejo de nuevas columnas</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F0.3.nuevas_cols.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/0.3.nuevas_cols.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Manejo de nuevas columnas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="manejo-de-nuevas-columnas">
+<h1>Manejo de nuevas columnas<a class="headerlink" href="#manejo-de-nuevas-columnas" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span>  <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">datos</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39;pres&#39;</span> <span class="ow">in</span> <span class="n">i</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>presion_arterial_sistolica
+presion_arterial_diastolica
+depresion
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;no_diabeticos_POC_hba1c(%)_controlado&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;diabeticos_POC_hba1c(%)_controlado&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;bajo_peso&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;normo_peso&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sobrepeso&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;obesidad&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;perimetro_abdominal_normal&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;perimetro_abdominal_aumentado&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;perimetro_abdominal_incremento_sustancial&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tension_normal&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tension_elevada&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tension_alta_nivel_1&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tension_alta_nivel_2&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tension_crisis_hipertensiva&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vect1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;no&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">)</span>
+<span class="n">vect2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;no&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">)</span>
+<span class="n">vect3</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;no&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">)</span>
+<span class="n">vect4</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;no&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">)</span>
+<span class="n">vect5</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;no&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">)</span>
+<span class="n">vect6</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;no&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">)</span>
+<span class="n">vect7</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;no&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">)</span>
+<span class="n">vect8</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;no&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">)</span>
+<span class="n">vect9</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;no&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">)</span>
+<span class="n">vect10</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;no&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">)</span>
+<span class="n">vect11</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;no&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">)</span>
+<span class="n">vect12</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;no&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">)</span>
+<span class="n">vect13</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;no&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">)</span>
+<span class="n">vect14</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;no&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">)):</span>
+    <span class="n">diab</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="s1">&#39;diabetes mellitus&#39;</span><span class="p">]</span>
+    <span class="n">hba</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="s1">&#39;POC_hba1c(%)&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">diab</span> <span class="o">==</span> <span class="s1">&#39;no&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">hba</span> <span class="o">&lt;</span> <span class="mf">5.7</span><span class="p">:</span>
+            <span class="n">vect1</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;si&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">hba</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">:</span>
+            <span class="n">vect2</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;si&#39;</span>
+    <span class="n">imc</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="s1">&#39;IMC&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">imc</span> <span class="o">&lt;</span> <span class="mf">19.9</span><span class="p">:</span>
+        <span class="n">vect3</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;si&#39;</span>
+    <span class="k">elif</span> <span class="mi">20</span> <span class="o">&lt;=</span> <span class="n">imc</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">:</span>
+        <span class="n">vect4</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;si&#39;</span>
+    <span class="k">elif</span> <span class="mi">25</span> <span class="o">&lt;</span> <span class="n">imc</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
+        <span class="n">vect5</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;si&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">vect6</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;si&#39;</span>
+    <span class="n">sexo</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="s1">&#39;sexo&#39;</span><span class="p">]</span>
+    <span class="n">pr_abd</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="s1">&#39;perimetro_abdominal&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">sexo</span> <span class="o">==</span> <span class="s1">&#39;masculino&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">pr_abd</span> <span class="o">&lt;</span> <span class="mi">94</span><span class="p">:</span>
+            <span class="n">vect7</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;si&#39;</span>
+        <span class="k">elif</span> <span class="n">pr_abd</span> <span class="o">&lt;</span> <span class="mi">102</span><span class="p">:</span>
+            <span class="n">vect8</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;si&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">vect9</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;si&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">pr_abd</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">:</span>
+            <span class="n">vect7</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;si&#39;</span>
+        <span class="k">elif</span> <span class="n">pr_abd</span> <span class="o">&lt;</span> <span class="mi">88</span><span class="p">:</span>
+            <span class="n">vect8</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;si&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">vect9</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;si&#39;</span>
+    <span class="n">sistolic</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="s1">&#39;presion_arterial_sistolica&#39;</span><span class="p">]</span>
+    <span class="n">diastolic</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="s1">&#39;presion_arterial_diastolica&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">sistolic</span> <span class="o">&lt;</span> <span class="mi">120</span> <span class="ow">and</span> <span class="n">diastolic</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">:</span>
+        <span class="n">vect10</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;si&#39;</span>
+    <span class="k">elif</span> <span class="mi">120</span> <span class="o">&lt;=</span> <span class="n">sistolic</span> <span class="o">&lt;=</span> <span class="mi">129</span> <span class="ow">and</span> <span class="n">diastolic</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">:</span>
+        <span class="n">vect11</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;si&#39;</span>
+    <span class="k">elif</span> <span class="mi">130</span> <span class="o">&lt;=</span> <span class="n">sistolic</span> <span class="o">&lt;=</span> <span class="mi">139</span> <span class="ow">or</span> <span class="mi">80</span> <span class="o">&lt;=</span> <span class="n">diastolic</span> <span class="o">&lt;=</span> <span class="mi">89</span><span class="p">:</span>
+        <span class="n">vect12</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;si&#39;</span>
+    <span class="k">elif</span> <span class="n">sistolic</span> <span class="o">&gt;=</span> <span class="mi">140</span> <span class="ow">or</span> <span class="n">diastolic</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+        <span class="n">vect13</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;si&#39;</span>
+    <span class="k">elif</span> <span class="n">sistolic</span> <span class="o">&gt;</span> <span class="mi">180</span> <span class="ow">or</span> <span class="n">diastolic</span> <span class="o">&gt;</span> <span class="mi">120</span><span class="p">:</span>
+        <span class="n">vect14</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;si&#39;</span>
+
+<span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">[</span><span class="s1">&#39;no_diabeticos_POC_hba1c(%)_controlado&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect1</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">[</span><span class="s1">&#39;diabeticos_POC_hba1c(%)_controlado&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect2</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">[</span><span class="s1">&#39;bajo_peso&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect3</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">[</span><span class="s1">&#39;normo_peso&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect4</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">[</span><span class="s1">&#39;sobrepeso&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect5</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">[</span><span class="s1">&#39;obesidad&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect6</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">[</span><span class="s1">&#39;perimetro_abdominal_normal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect7</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">[</span><span class="s1">&#39;perimetro_abdominal_aumentado&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect8</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">[</span><span class="s1">&#39;perimetro_abdominal_incremento_sustancial&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect9</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">[</span><span class="s1">&#39;tension_normal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect10</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">[</span><span class="s1">&#39;tension_elevada&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect11</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">[</span><span class="s1">&#39;tension_alta_nivel_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect12</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">[</span><span class="s1">&#39;tension_alta_nivel_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect13</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">[</span><span class="s1">&#39;tension_crisis_hipertensiva&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vect14</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span><span class="o">.</span><span class="n">datos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>individuo</th>
+      <th>fecha_constetimiento_informado</th>
+      <th>fecha_de_nacimiento</th>
+      <th>edad_calculada</th>
+      <th>estado_civil</th>
+      <th>sexo</th>
+      <th>lugar_de_nacimiento</th>
+      <th>lugar_de_procedencia</th>
+      <th>escolaridad</th>
+      <th>estrato_socieconomico</th>
+      <th>...</th>
+      <th>sobrepeso</th>
+      <th>obesidad</th>
+      <th>perimetro_abdominal_normal</th>
+      <th>perimetro_abdominal_aumentado</th>
+      <th>perimetro_abdominal_incremento_sustancial</th>
+      <th>tension_normal</th>
+      <th>tension_elevada</th>
+      <th>tension_alta_nivel_1</th>
+      <th>tension_alta_nivel_2</th>
+      <th>tension_crisis_hipertensiva</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>70033505</td>
+      <td>2023-08-31</td>
+      <td>1951-09-10</td>
+      <td>71</td>
+      <td>casado</td>
+      <td>masculino</td>
+      <td>bogota</td>
+      <td>bogota</td>
+      <td>profesional</td>
+      <td>6</td>
+      <td>...</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>41760470</td>
+      <td>2023-08-30</td>
+      <td>1955-11-22</td>
+      <td>67</td>
+      <td>divorciado</td>
+      <td>femenino</td>
+      <td>bogota</td>
+      <td>bogota</td>
+      <td>profesional</td>
+      <td>3</td>
+      <td>...</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>17171452</td>
+      <td>2023-08-30</td>
+      <td>1945-11-09</td>
+      <td>77</td>
+      <td>casado</td>
+      <td>masculino</td>
+      <td>jesus</td>
+      <td>bogota</td>
+      <td>especialista</td>
+      <td>4</td>
+      <td>...</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1019032057</td>
+      <td>2023-08-25</td>
+      <td>1989-12-03</td>
+      <td>33</td>
+      <td>union libre</td>
+      <td>femenino</td>
+      <td>barranquilla</td>
+      <td>bogota</td>
+      <td>tecnologo</td>
+      <td>4</td>
+      <td>...</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>19250084</td>
+      <td>2023-08-24</td>
+      <td>1954-12-01</td>
+      <td>68</td>
+      <td>casado</td>
+      <td>masculino</td>
+      <td>medellin</td>
+      <td>bogota</td>
+      <td>profesional</td>
+      <td>6</td>
+      <td>...</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>982</th>
+      <td>7561381</td>
+      <td>2023-05-17</td>
+      <td>1970-07-09</td>
+      <td>52</td>
+      <td>soltero</td>
+      <td>masculino</td>
+      <td>armenia</td>
+      <td>armenia</td>
+      <td>secundaria completa</td>
+      <td>2</td>
+      <td>...</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>983</th>
+      <td>41899611</td>
+      <td>2023-05-17</td>
+      <td>1954-11-10</td>
+      <td>68</td>
+      <td>union libre</td>
+      <td>femenino</td>
+      <td>armenia</td>
+      <td>armenia</td>
+      <td>primaria incompleta</td>
+      <td>2</td>
+      <td>...</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>984</th>
+      <td>19317507</td>
+      <td>2023-05-17</td>
+      <td>1956-11-05</td>
+      <td>66</td>
+      <td>casado</td>
+      <td>masculino</td>
+      <td>bogota</td>
+      <td>circasia</td>
+      <td>especialista</td>
+      <td>3</td>
+      <td>...</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>985</th>
+      <td>4398004</td>
+      <td>2023-05-16</td>
+      <td>1942-01-24</td>
+      <td>81</td>
+      <td>casado</td>
+      <td>masculino</td>
+      <td>montenegro</td>
+      <td>armenia</td>
+      <td>primaria completa</td>
+      <td>4</td>
+      <td>...</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>986</th>
+      <td>41557614</td>
+      <td>2023-05-16</td>
+      <td>1951-05-02</td>
+      <td>72</td>
+      <td>casado</td>
+      <td>femenino</td>
+      <td>guateque</td>
+      <td>armenia</td>
+      <td>secundaria incompleta</td>
+      <td>3</td>
+      <td>...</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+    </tr>
+  </tbody>
+</table>
+<p>987 rows × 156 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">datos</span><span class="p">)</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;datos_CAIMEDv8_fixed.xlsx&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="0.2.union.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Unión de Datos Nuevos</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
