@@ -1,0 +1,1057 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Segmentacion &#8212; Seminario Investigativo</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'segmentacion';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Demanda menor o igual a 40" href="Demanda_menor.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Seminario Investigativo - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Seminario Investigativo - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Modelos de predicción de la demanda estudianti
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Modelos_usuales.html">Inicio de modelos</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="Demanda_mayor.html">Demanda mayor a 40</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Demanda_menor.html">Demanda menor o igual a 40</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Segmentacion</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fsegmentacion.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/segmentacion.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Segmentacion</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="segmentacion">
+<h1>Segmentacion<a class="headerlink" href="#segmentacion" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_path</span> <span class="o">=</span> <span class="s1">&#39;for_Holt.xlsx&#39;</span>
+<span class="n">excel_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelFile</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="n">sheet_names</span> <span class="o">=</span> <span class="n">excel_data</span><span class="o">.</span><span class="n">sheet_names</span>
+<span class="n">sheet_names</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Sheet1&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">excel_data</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;Sheet1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">department_summary</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Codigo_Dpto&#39;</span><span class="p">)[</span><span class="s1">&#39;Titulo_Curso&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">department_summary</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Codigo_Dpto&#39;</span><span class="p">,</span> <span class="s1">&#39;Unique_Courses_Count&#39;</span><span class="p">]</span>
+
+<span class="n">department_summary</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Unique_Courses_Count&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Codigo_Dpto</th>
+      <th>Unique_Courses_Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>25</th>
+      <td>52</td>
+      <td>153</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>77</td>
+      <td>131</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>51</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>42</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>50</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>49</td>
+      <td>79</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>14</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>61</td>
+      <td>58</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>15</td>
+      <td>55</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>45</td>
+      <td>54</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spanish_stop_words</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;de&#39;</span><span class="p">,</span> <span class="s1">&#39;la&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;el&#39;</span><span class="p">,</span> <span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;que&#39;</span><span class="p">,</span> <span class="s1">&#39;los&#39;</span><span class="p">,</span> <span class="s1">&#39;del&#39;</span><span class="p">,</span> <span class="s1">&#39;se&#39;</span><span class="p">,</span> <span class="s1">&#39;las&#39;</span><span class="p">,</span> <span class="s1">&#39;por&#39;</span><span class="p">,</span> <span class="s1">&#39;un&#39;</span><span class="p">,</span> <span class="s1">&#39;con&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;para&#39;</span><span class="p">,</span> <span class="s1">&#39;su&#39;</span><span class="p">,</span> <span class="s1">&#39;es&#39;</span><span class="p">,</span> <span class="s1">&#39;una&#39;</span><span class="p">,</span> <span class="s1">&#39;al&#39;</span><span class="p">,</span> <span class="s1">&#39;lo&#39;</span><span class="p">,</span> <span class="s1">&#39;como&#39;</span><span class="p">,</span> <span class="s1">&#39;más&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;sus&#39;</span><span class="p">,</span> <span class="s1">&#39;pero&#39;</span><span class="p">,</span> <span class="s1">&#39;le&#39;</span><span class="p">,</span> <span class="s1">&#39;ha&#39;</span><span class="p">,</span> <span class="s1">&#39;me&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;si&#39;</span><span class="p">,</span> <span class="s1">&#39;sin&#39;</span><span class="p">,</span> <span class="s1">&#39;sobre&#39;</span><span class="p">,</span> <span class="s1">&#39;este&#39;</span><span class="p">,</span> <span class="s1">&#39;ya&#39;</span><span class="p">,</span> <span class="s1">&#39;entre&#39;</span><span class="p">,</span> <span class="s1">&#39;cuando&#39;</span><span class="p">,</span> <span class="s1">&#39;todo&#39;</span><span class="p">,</span> <span class="s1">&#39;esta&#39;</span><span class="p">,</span> <span class="s1">&#39;ser&#39;</span><span class="p">,</span> <span class="s1">&#39;son&#39;</span><span class="p">,</span> <span class="s1">&#39;dos&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;también&#39;</span><span class="p">,</span> <span class="s1">&#39;fue&#39;</span><span class="p">,</span> <span class="s1">&#39;había&#39;</span><span class="p">,</span> <span class="s1">&#39;era&#39;</span><span class="p">,</span> <span class="s1">&#39;muy&#39;</span><span class="p">,</span> <span class="s1">&#39;hasta&#39;</span><span class="p">,</span> <span class="s1">&#39;desde&#39;</span><span class="p">,</span> <span class="s1">&#39;nos&#39;</span><span class="p">,</span> <span class="s1">&#39;durante&#39;</span><span class="p">,</span> <span class="s1">&#39;uno&#39;</span><span class="p">,</span> <span class="s1">&#39;ni&#39;</span><span class="p">,</span> <span class="s1">&#39;contra&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;ese&#39;</span><span class="p">,</span> <span class="s1">&#39;eso&#39;</span><span class="p">,</span> <span class="s1">&#39;mí&#39;</span><span class="p">,</span> <span class="s1">&#39;qué&#39;</span><span class="p">,</span> <span class="s1">&#39;otro&#39;</span><span class="p">,</span> <span class="s1">&#39;él&#39;</span><span class="p">,</span> <span class="s1">&#39;cual&#39;</span><span class="p">,</span> <span class="s1">&#39;poco&#39;</span><span class="p">,</span> <span class="s1">&#39;mi&#39;</span><span class="p">,</span> <span class="s1">&#39;tú&#39;</span><span class="p">,</span> <span class="s1">&#39;te&#39;</span><span class="p">,</span> <span class="s1">&#39;ti&#39;</span><span class="p">,</span> <span class="s1">&#39;no&#39;</span><span class="p">,</span> <span class="s1">&#39;sí&#39;</span><span class="p">,</span> <span class="s1">&#39;cada&#39;</span>
+<span class="p">]</span>
+
+<span class="n">course_titles</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Titulo_Curso&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">stop_words</span><span class="o">=</span><span class="n">spanish_stop_words</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">course_titles</span><span class="p">)</span>
+
+<span class="n">num_clusters</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">num_clusters</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Cluster&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">cluster_samples</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Cluster&#39;</span><span class="p">)[</span><span class="s1">&#39;Titulo_Curso&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">5</span><span class="p">)))</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">cluster_samples</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Cluster</th>
+      <th>level_1</th>
+      <th>Titulo_Curso</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>14809</td>
+      <td>FUNDAMENTOS DE TEORIA</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>3664</td>
+      <td>FUNDAMENTOS DE ESTADISTICA</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>4918</td>
+      <td>FUNDAMENTOS/TEORIAS PS SOCIAL</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>13394</td>
+      <td>FUNDAMENTOS DE ADMON.</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>13813</td>
+      <td>FUNDAMENTOS DE MERCADEO</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1</td>
+      <td>8705</td>
+      <td>ESTRATEGIAS DE OPERACIONES</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1</td>
+      <td>8049</td>
+      <td>MOTIVACIÓN Y EMOCIÓN</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+      <td>4373</td>
+      <td>FAMILIA, ESCUELA Y SOCIEDAD</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1</td>
+      <td>13925</td>
+      <td>ORTOPEDIA MAXILAR Y ORTODONCIA</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1</td>
+      <td>4924</td>
+      <td>FUND NEURODESARROLLO INFANTIL</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2</td>
+      <td>3824</td>
+      <td>JAZZ Y MUSICA POPULAR III</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2</td>
+      <td>15830</td>
+      <td>RECITAL JAZZ Y MUSICA POPUL II</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>2</td>
+      <td>4826</td>
+      <td>JAZZ Y MUSICA POPULAR II</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2</td>
+      <td>6957</td>
+      <td>RECITAL JAZZ Y MUSICA POPUL I</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>2</td>
+      <td>13829</td>
+      <td>MUSICA DE CAMARA I</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>3</td>
+      <td>3727</td>
+      <td>ELECTIVA I (BASICA MED O CLI)</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>3</td>
+      <td>9128</td>
+      <td>PROMOC. DE LA SALUD Y PREV.(T)</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>3</td>
+      <td>18</td>
+      <td>T. CIUDAD I: ESPACIO PUB Y DIS</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>3</td>
+      <td>5989</td>
+      <td>PROMOC. DE LA SALUD Y PREV.(T)</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>3</td>
+      <td>5007</td>
+      <td>AREA DE ENFASIS CONTADURIA PUB</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Demanda_Max_Estimada&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribución de la Demanda Máxima Estimada en los Cursos&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Demanda Máxima Estimada&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Número de Cursos&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Demand_Segment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Demanda_Max_Estimada&#39;</span><span class="p">],</span> 
+    <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">2000</span><span class="p">],</span> 
+    <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;bajo&#39;</span><span class="p">,</span> <span class="s1">&#39;Medio&#39;</span><span class="p">,</span> <span class="s1">&#39;Alto&#39;</span><span class="p">,</span> <span class="s1">&#39;Muy Alto&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># Displaying the counts of each segment to understand the distribution</span>
+<span class="n">demand_segment_counts</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Demand_Segment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">demand_segment_counts</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Demand_Segment&#39;</span><span class="p">,</span> <span class="s1">&#39;Course_Count&#39;</span><span class="p">]</span>
+<span class="n">demand_segment_counts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/bf764199819c44ee2064027523d6eb24abae2d582833844068d43206aa5e75d9.png" src="_images/bf764199819c44ee2064027523d6eb24abae2d582833844068d43206aa5e75d9.png" />
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Demand_Segment</th>
+      <th>Course_Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>bajo</td>
+      <td>7474</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Medio</td>
+      <td>4407</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Alto</td>
+      <td>2852</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Muy Alto</td>
+      <td>340</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">very_high_demand_courses</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Demand_Segment&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Muy Alto&#39;</span><span class="p">]</span>
+
+<span class="n">top_demand_courses</span> <span class="o">=</span> <span class="n">very_high_demand_courses</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Demanda_Max_Estimada&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">top_demand_courses</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Periodo</th>
+      <th>Codigo_Dpto</th>
+      <th>Titulo_Curso</th>
+      <th>Num_Periodos_Ant</th>
+      <th>Matrícula_Estimada_Historica</th>
+      <th>Proyectados_Actual_(S)</th>
+      <th>Meta_Nuevos</th>
+      <th>Demanda_Max_Estimada</th>
+      <th>Nro_Grupos_40</th>
+      <th>Nro_Grupos_30</th>
+      <th>Nro_Grupos_25</th>
+      <th>Cluster</th>
+      <th>Demand_Segment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2363</th>
+      <td>201810</td>
+      <td>76</td>
+      <td>COMPETENCIA COMUNICATIVA I</td>
+      <td>14</td>
+      <td>1940</td>
+      <td>1801</td>
+      <td>1657</td>
+      <td>1940</td>
+      <td>48.000</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>Muy Alto</td>
+    </tr>
+    <tr>
+      <th>13093</th>
+      <td>202310</td>
+      <td>0</td>
+      <td>FORMACION COMPL. LIBRE 1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1882</td>
+      <td>0</td>
+      <td>1882</td>
+      <td>47.000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>Muy Alto</td>
+    </tr>
+    <tr>
+      <th>1367</th>
+      <td>201730</td>
+      <td>76</td>
+      <td>COMPETENCIA COMUNICATIVA II</td>
+      <td>13</td>
+      <td>1763</td>
+      <td>1840</td>
+      <td>0</td>
+      <td>1840</td>
+      <td>0.000</td>
+      <td>62.000000</td>
+      <td>0.0</td>
+      <td>5</td>
+      <td>Muy Alto</td>
+    </tr>
+    <tr>
+      <th>3395</th>
+      <td>201830</td>
+      <td>76</td>
+      <td>COMPETENCIA COMUNICATIVA II</td>
+      <td>14</td>
+      <td>1695</td>
+      <td>1828</td>
+      <td>0</td>
+      <td>1828</td>
+      <td>0.000</td>
+      <td>60.933333</td>
+      <td>0.0</td>
+      <td>5</td>
+      <td>Muy Alto</td>
+    </tr>
+    <tr>
+      <th>4408</th>
+      <td>201910</td>
+      <td>76</td>
+      <td>COMPETENCIA COMUNICATIVA I</td>
+      <td>15</td>
+      <td>1827</td>
+      <td>154</td>
+      <td>1509</td>
+      <td>1827</td>
+      <td>45.000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>Muy Alto</td>
+    </tr>
+    <tr>
+      <th>15080</th>
+      <td>202410</td>
+      <td>0</td>
+      <td>FORMACION COMPL. LIBRE 1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1755</td>
+      <td>0</td>
+      <td>1755</td>
+      <td>43.875</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>Muy Alto</td>
+    </tr>
+    <tr>
+      <th>8605</th>
+      <td>202110</td>
+      <td>46</td>
+      <td>ELECTIVA EN HUMANIDADES</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1721</td>
+      <td>185</td>
+      <td>1721</td>
+      <td>43.000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>5</td>
+      <td>Muy Alto</td>
+    </tr>
+    <tr>
+      <th>10606</th>
+      <td>202210</td>
+      <td>46</td>
+      <td>ELECTIVA EN HUMANIDADES</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1663</td>
+      <td>185</td>
+      <td>1700</td>
+      <td>42.000</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+      <td>5</td>
+      <td>Muy Alto</td>
+    </tr>
+    <tr>
+      <th>9613</th>
+      <td>202130</td>
+      <td>46</td>
+      <td>ELECTIVA EN ETICA</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1658</td>
+      <td>0</td>
+      <td>1658</td>
+      <td>41.000</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+      <td>5</td>
+      <td>Muy Alto</td>
+    </tr>
+    <tr>
+      <th>14057</th>
+      <td>202330</td>
+      <td>0</td>
+      <td>FORMACION COMPL. LIBRE 1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1653</td>
+      <td>0</td>
+      <td>1653</td>
+      <td>41.000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>Muy Alto</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Demanda_menor.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Demanda menor o igual a 40</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Lorenzo Gutiérrez y Juan Albis
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
