@@ -182,10 +182,12 @@
 <li class="toctree-l1"><a class="reference internal" href="2.Objetivo_1.2.html">Objetivo_1.2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3.Objetivo_2.1.html">Objetivo_2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4.Objetivo_3.html">Objetivo_3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5.Objetivo_4.html">Objetivo_4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resumen.html">Resumen de Proceso de Depuración de la Base de Datos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="0.1.Cambios.html">Proceso interno de nuevos cambios</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Unión de Datos Nuevos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="0.3.nuevas_cols.html">Manejo de nuevas columnas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0.4.nuevas_cols2.html">Modificaciones con Riesgo CV</a></li>
 </ul>
 
     </div>
@@ -391,7 +393,7 @@ document.write(`
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">df_0</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;datos_CAIMEDv8_fixed.xlsx&#39;</span><span class="p">)</span>
-<span class="n">df_1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;external_data.xlsx&#39;</span><span class="p">)</span>
+<span class="n">df_1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Datos riesgo cardiovascular estudio CARED  para unirv5.xlsx&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -448,6 +450,7 @@ document.write(`
       <th>Angina Estble</th>
       <th>Cateterismo cardiaco</th>
       <th>Enfermedad arterial periférica</th>
+      <th>Riesgo CV</th>
     </tr>
   </thead>
   <tbody>
@@ -472,6 +475,7 @@ document.write(`
       <td>No</td>
       <td>Si</td>
       <td>No</td>
+      <td>Muy alto</td>
     </tr>
     <tr>
       <th>1</th>
@@ -494,6 +498,7 @@ document.write(`
       <td>No</td>
       <td>Si</td>
       <td>No</td>
+      <td>Muy alto</td>
     </tr>
     <tr>
       <th>2</th>
@@ -516,6 +521,7 @@ document.write(`
       <td>No</td>
       <td>No</td>
       <td>No</td>
+      <td>Muy alto</td>
     </tr>
     <tr>
       <th>3</th>
@@ -538,6 +544,7 @@ document.write(`
       <td>No</td>
       <td>No</td>
       <td>No</td>
+      <td>Muy alto</td>
     </tr>
     <tr>
       <th>4</th>
@@ -560,9 +567,11 @@ document.write(`
       <td>No</td>
       <td>No</td>
       <td>No</td>
+      <td>Muy alto</td>
     </tr>
     <tr>
       <th>...</th>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -604,6 +613,7 @@ document.write(`
       <td>No</td>
       <td>No</td>
       <td>No</td>
+      <td>Muy alto</td>
     </tr>
     <tr>
       <th>970</th>
@@ -626,6 +636,7 @@ document.write(`
       <td>No</td>
       <td>No</td>
       <td>No</td>
+      <td>Muy alto</td>
     </tr>
     <tr>
       <th>971</th>
@@ -648,6 +659,7 @@ document.write(`
       <td>No</td>
       <td>No</td>
       <td>No</td>
+      <td>Muy alto</td>
     </tr>
     <tr>
       <th>972</th>
@@ -670,6 +682,7 @@ document.write(`
       <td>No</td>
       <td>No</td>
       <td>No</td>
+      <td>Muy alto</td>
     </tr>
     <tr>
       <th>973</th>
@@ -692,10 +705,11 @@ document.write(`
       <td>No</td>
       <td>No</td>
       <td>No</td>
+      <td>Muy alto</td>
     </tr>
   </tbody>
 </table>
-<p>974 rows × 19 columns</p>
+<p>974 rows × 20 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
@@ -703,6 +717,14 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">ced</span> <span class="ow">in</span> <span class="n">df_1</span><span class="p">[</span><span class="s1">&#39;cedula&#39;</span><span class="p">]:</span>
     <span class="k">if</span> <span class="n">ced</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">df_0</span><span class="p">[</span><span class="s1">&#39;individuo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)):</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;eroor&#39;</span><span class="p">,</span> <span class="n">ced</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;en total&#39;</span><span class="p">)</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">ced</span> <span class="ow">in</span> <span class="n">df_0</span><span class="p">[</span><span class="s1">&#39;individuo&#39;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">ced</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">df_1</span><span class="p">[</span><span class="s1">&#39;cedula&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)):</span>
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;eroor&#39;</span><span class="p">,</span> <span class="n">ced</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;en total&#39;</span><span class="p">)</span>
@@ -732,6 +754,41 @@ eroor 3297269
 eroor 19252859
 eroor 23738879
 21 en total
+eroor 37248444
+eroor 30342416
+eroor 41785312
+eroor 41492534
+eroor 79238531
+eroor 19069768
+eroor 7222256
+eroor 4270281
+eroor 3271188
+eroor 79299980
+eroor 79525275
+eroor 17412133
+eroor 17417296
+eroor 17169684
+eroor 7767013
+eroor 17303472
+eroor 41348135
+eroor 17308717
+eroor 2229512
+eroor 93382685
+eroor 79061001
+eroor 24477837
+eroor 7498292
+eroor 7562813
+eroor 7526706
+eroor 25017612
+eroor 70380727
+eroor 4532751
+eroor 1393582
+eroor 25021147
+eroor 26570822
+eroor 7542868
+eroor 7555097
+eroor 31289330
+34 en total
 </pre></div>
 </div>
 </div>
@@ -754,7 +811,7 @@ eroor 23738879
     <span class="n">current_ced</span>  <span class="o">=</span> <span class="p">(</span><span class="n">df_0</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_a</span><span class="p">])[</span><span class="s1">&#39;individuo&#39;</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">current_ced</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">df_1</span><span class="p">[</span><span class="s1">&#39;cedula&#39;</span><span class="p">]):</span>
         <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">column_names</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">column</span> <span class="o">==</span> <span class="s1">&#39;cedula&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">column</span> <span class="o">==</span> <span class="s1">&#39;cedula&#39;</span> <span class="p">:</span>
                 <span class="n">dx</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">current_ced</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)))</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">dx</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>  <span class="nb">list</span><span class="p">(</span><span class="n">df_1</span><span class="p">[</span><span class="n">df_1</span><span class="p">[</span><span class="s1">&#39;cedula&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">current_ced</span><span class="p">][</span><span class="n">column</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>     <span class="p">)</span>
@@ -842,7 +899,607 @@ Name: sexo, Length: 987, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dx_2</span><span class="p">)</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;datos_CAIMEDv8_unido.xlsx&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dx2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dx_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ensure &#39;cedula&#39; is of type string</span>
+<span class="n">dx2</span><span class="p">[</span><span class="s1">&#39;cedula&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dx2</span><span class="p">[</span><span class="s1">&#39;cedula&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+
+<span class="c1"># Filter rows where &#39;cedula&#39; is not empty</span>
+<span class="n">dx2</span> <span class="o">=</span> <span class="n">dx2</span><span class="p">[</span><span class="n">dx2</span><span class="p">[</span><span class="s1">&#39;cedula&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="c1"># Reset the index if required</span>
+<span class="n">dx2</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dx2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nombres y apellidos</th>
+      <th>cedula</th>
+      <th>edad</th>
+      <th>ciudad</th>
+      <th>sexo_a</th>
+      <th>sexo</th>
+      <th>Diabetico</th>
+      <th>Tiempo de DM</th>
+      <th>Hipertensión</th>
+      <th>Hipercolesterolemia familiar</th>
+      <th>...</th>
+      <th>sobrepeso</th>
+      <th>obesidad</th>
+      <th>perimetro_abdominal_normal</th>
+      <th>perimetro_abdominal_aumentado</th>
+      <th>perimetro_abdominal_incremento_sustancial</th>
+      <th>tension_normal</th>
+      <th>tension_elevada</th>
+      <th>tension_alta_nivel_1</th>
+      <th>tension_alta_nivel_2</th>
+      <th>tension_crisis_hipertensiva</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Guillermo Fonnegra</td>
+      <td>70033505</td>
+      <td>72</td>
+      <td>BOGOTA</td>
+      <td>masculino</td>
+      <td>masculino</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>Si</td>
+      <td>Si</td>
+      <td>...</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Zully De Moya Garzon</td>
+      <td>41760470</td>
+      <td>67</td>
+      <td>BOGOTA</td>
+      <td>femenino</td>
+      <td>femenino</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>No</td>
+      <td>...</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Omar Luengas Perez</td>
+      <td>17171452</td>
+      <td>78</td>
+      <td>BOGOTA</td>
+      <td>masculino</td>
+      <td>masculino</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>Si</td>
+      <td>Si</td>
+      <td>...</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Maira Fernández barraza</td>
+      <td>1019032057</td>
+      <td>34</td>
+      <td>BOGOTA</td>
+      <td>femenino</td>
+      <td>femenino</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>No</td>
+      <td>...</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Francisco Javier Mora</td>
+      <td>19250084</td>
+      <td>69</td>
+      <td>BOGOTA</td>
+      <td>masculino</td>
+      <td>masculino</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>No</td>
+      <td>...</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>948</th>
+      <td>Jhon Jairo arrubla arrubla</td>
+      <td>7561381</td>
+      <td>52</td>
+      <td>ARMENIA</td>
+      <td>masculino</td>
+      <td>masculino</td>
+      <td>Si</td>
+      <td>Entre 10 y 20 años</td>
+      <td>Si</td>
+      <td>No</td>
+      <td>...</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>949</th>
+      <td>Amparo franco reyes</td>
+      <td>41899611</td>
+      <td>67</td>
+      <td>ARMENIA</td>
+      <td>femenino</td>
+      <td>femenino</td>
+      <td>Si</td>
+      <td>Menos de 10 años</td>
+      <td>Si</td>
+      <td>Si</td>
+      <td>...</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>950</th>
+      <td>Gabriel Gonzalez Rivera</td>
+      <td>19317507</td>
+      <td>67</td>
+      <td>ARMENIA</td>
+      <td>masculino</td>
+      <td>masculino</td>
+      <td>Si</td>
+      <td>Menos de 10 años</td>
+      <td>No</td>
+      <td>No</td>
+      <td>...</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>951</th>
+      <td>jairo alberto ospina bolaño</td>
+      <td>4398004</td>
+      <td>83</td>
+      <td>ARMENIA</td>
+      <td>masculino</td>
+      <td>masculino</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>Si</td>
+      <td>Si</td>
+      <td>...</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>952</th>
+      <td>maria elena parra sosa</td>
+      <td>41557614</td>
+      <td>72</td>
+      <td>ARMENIA</td>
+      <td>femenino</td>
+      <td>femenino</td>
+      <td>Si</td>
+      <td>Entre 10 y 20 años</td>
+      <td>No</td>
+      <td>No</td>
+      <td>...</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>si</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+    </tr>
+  </tbody>
+</table>
+<p>953 rows × 177 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dx2</span> <span class="p">:</span> 
+    <span class="k">if</span> <span class="s1">&#39;&#39;</span> <span class="ow">in</span> <span class="n">i</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nombres y apellidos
+cedula
+edad
+ciudad
+sexo_a
+sexo
+Diabetico
+Tiempo de DM
+Hipertensión 
+Hipercolesterolemia familiar
+ERCoDialisis
+Ultimo Rango de Colesterol total
+Enfermedad  relevante
+Infarto agudo al miocardio
+ACV
+Enf Arterial
+Angina Inestable
+Angina Estble
+Cateterismo cardiaco
+Enfermedad arterial periférica
+Riesgo CV
+individuo
+fecha_constetimiento_informado
+fecha_de_nacimiento
+edad_calculada
+estado_civil
+sexo_b
+lugar_de_nacimiento
+lugar_de_procedencia
+escolaridad
+estrato_socieconomico
+tipo_de_afiliacion
+¿tiene_seguro_de_salud?
+tipo_de_seguro_de_salud
+antecedentes_de_tabaquismo
+presion_arterial_sistolica
+presion_arterial_diastolica
+peso(kg)
+talla(m)
+perimetro_abdominal
+IMC
+IMC_calculada
+antecedentes_en_criterios_de_inclusion
+POC_hba1c(%)
+colesterol_total(mg/dl)
+HDL(mg/dl)
+trigliceridos(mg/dl)
+cLDL(mg/dl)
+¿cLDL_menor_a_70mg/dl?
+¿nivel_de_HbA1c_menor_de_5.7_%?_o_¿Nivel_de_HbA1c_menor a_7%_si_el_sujeto_es_diabético?
+dosis
+fecha_de_inicio
+Años
+Meses
+Dias
+tipo_de_ocupacion
+dislipidemia
+hipertension
+cardiopatia isquemica
+hiperplasia prostatica
+hipotiroidismo
+acalasia
+infarto de miocardio
+tiroides
+acne
+diabetes mellitus
+aneurisma
+apnea
+esclerosis
+fibrilacion
+migrana
+litiasis
+neumonia
+glaucoma
+estenosis
+gastritis
+sindrome del colon irritable
+insuficiencia cardiaca congestiva
+trombosis
+nefropatia
+artrosis
+gota
+higado graso
+bloqueo
+hipercolesterolemia
+diverticulosis
+reflujo
+depresion
+leucemia
+sindrome neuropatico
+alzheimer
+accidente cerebrovascular
+sepsis
+queratosis
+leucoencefalopatia
+angiopatia
+esplenectomia
+rinitis
+vertigo
+tumor
+poliposis
+fascicular
+epilepsia
+arritmia
+osteopenia
+valvula
+mioclonias
+herpes
+varicocele
+asthma
+trastorno
+anemia
+mieloma
+hepatitis
+¿hay_antecedentes_familiares?
+¿tiene_antecedentes_con_abuelo?
+tipo_de_antecedentes_con_abuelo
+¿tiene_antecedentes_con_abuela?
+tipo_de_antecedentes_con_abuela
+¿tiene_antecedentes_con_padre?
+tipo_de_antecedentes_con_padre
+¿tiene_antecedentes_con_madre?
+tipo_de_antecedentes_con_madre
+¿tiene_antecedentes_con_herman?
+tipo_de_antecedentes_con_herman
+¿tiene_antecedentes_con_tio?
+tipo_de_antecedentes_con_tio
+fumador
+tiempo_fumador
+bebedor
+tiempo_bebedor
+otro_antecedente_toxicologico
+tiempo_otro_antecedente_toxicologico
+Ezetimibe
+Degludec
+Atorvastatina
+Glulisina
+Dapagliflozina
+Colestiramina
+Evolocumab
+Glargina
+Insulina Glargina
+Acido fenofibrico
+Fenofibrato
+Empagliflozina
+Insulina
+alirocumab
+Dulaglutida
+Lantus
+Insulina Lispro
+Glibenclamida
+Glimepirida
+Hipolipemiante
+Antidiabético
+¿se_hizo_examen?
+¿resultados_relacionados_a_obesidad?
+¿son_signficativos_relacionado_a_obesidad?
+¿resultados_relacionados_a_problemas cardiacos?
+¿son_signficativos_relacionado_a_problemas cardiacos?
+¿resultados_relacionados_a_tension arterial?
+¿son_signficativos_relacionado_a_tension arterial?
+¿resultados_relacionados_a_accidente cerebrovascular?
+¿son_signficativos_relacionado_a_accidente cerebrovascular?
+no_diabeticos_POC_hba1c(%)_controlado
+diabeticos_POC_hba1c(%)_controlado
+bajo_peso
+normo_peso
+sobrepeso
+obesidad
+perimetro_abdominal_normal
+perimetro_abdominal_aumentado
+perimetro_abdominal_incremento_sustancial
+tension_normal
+tension_elevada
+tension_alta_nivel_1
+tension_alta_nivel_2
+tension_crisis_hipertensiva
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">dx2</span><span class="p">[</span><span class="n">dx2</span><span class="p">[</span><span class="s1">&#39;cedula&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">79314863</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nombres y apellidos</th>
+      <th>cedula</th>
+      <th>edad</th>
+      <th>ciudad</th>
+      <th>sexo_a</th>
+      <th>sexo</th>
+      <th>Diabetico</th>
+      <th>Tiempo de DM</th>
+      <th>Hipertensión</th>
+      <th>Hipercolesterolemia familiar</th>
+      <th>...</th>
+      <th>sobrepeso</th>
+      <th>obesidad</th>
+      <th>perimetro_abdominal_normal</th>
+      <th>perimetro_abdominal_aumentado</th>
+      <th>perimetro_abdominal_incremento_sustancial</th>
+      <th>tension_normal</th>
+      <th>tension_elevada</th>
+      <th>tension_alta_nivel_1</th>
+      <th>tension_alta_nivel_2</th>
+      <th>tension_crisis_hipertensiva</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+<p>0 rows × 177 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dx2</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;datos_CAIMEDv8_unido_v2.xlsx&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dx2</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s1">&#39;pres&#39;</span> <span class="ow">in</span> <span class="n">i</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>presion_arterial_sistolica 35
+presion_arterial_diastolica 36
+depresion 87
 </pre></div>
 </div>
 </div>
