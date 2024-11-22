@@ -541,20 +541,17 @@ depresion
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>individuo</th>
-      <th>fecha_constetimiento_informado</th>
-      <th>fecha_de_nacimiento</th>
-      <th>edad_calculada</th>
-      <th>estado_civil</th>
+      <th>Nombres y apellidos</th>
+      <th>cedula</th>
+      <th>edad</th>
+      <th>ciudad</th>
+      <th>sexo_a</th>
       <th>sexo</th>
-      <th>lugar_de_nacimiento</th>
-      <th>lugar_de_procedencia</th>
-      <th>escolaridad</th>
-      <th>estrato_socieconomico</th>
+      <th>Diabetico</th>
+      <th>Tiempo de DM</th>
+      <th>Hipertensión</th>
+      <th>Hipercolesterolemia familiar</th>
       <th>...</th>
-      <th>sobrepeso</th>
-      <th>obesidad</th>
-      <th>perimetro_abdominal_normal</th>
       <th>perimetro_abdominal_aumentado</th>
       <th>perimetro_abdominal_incremento_sustancial</th>
       <th>tension_normal</th>
@@ -562,49 +559,49 @@ depresion
       <th>tension_alta_nivel_1</th>
       <th>tension_alta_nivel_2</th>
       <th>tension_crisis_hipertensiva</th>
+      <th>cLDL_controlado</th>
+      <th>HDL_controlado</th>
+      <th>Trigliceridos_controlados</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
+      <td>Guillermo Fonnegra</td>
       <td>70033505</td>
-      <td>2023-08-31</td>
-      <td>1951-09-10</td>
-      <td>71</td>
-      <td>casado</td>
+      <td>72</td>
+      <td>BOGOTA</td>
       <td>masculino</td>
-      <td>bogota</td>
-      <td>bogota</td>
-      <td>profesional</td>
-      <td>6</td>
+      <td>masculino</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>Si</td>
+      <td>Si</td>
       <td>...</td>
       <td>si</td>
       <td>no</td>
       <td>no</td>
-      <td>si</td>
-      <td>no</td>
-      <td>no</td>
       <td>no</td>
       <td>si</td>
       <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
       <td>no</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>Zully De Moya Garzon</td>
       <td>41760470</td>
-      <td>2023-08-30</td>
-      <td>1955-11-22</td>
       <td>67</td>
-      <td>divorciado</td>
+      <td>BOGOTA</td>
       <td>femenino</td>
-      <td>bogota</td>
-      <td>bogota</td>
-      <td>profesional</td>
-      <td>3</td>
+      <td>femenino</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>No</td>
       <td>...</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
       <td>si</td>
       <td>no</td>
       <td>no</td>
@@ -612,47 +609,47 @@ depresion
       <td>si</td>
       <td>no</td>
       <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>si</td>
     </tr>
     <tr>
       <th>2</th>
+      <td>Omar Luengas Perez</td>
       <td>17171452</td>
-      <td>2023-08-30</td>
-      <td>1945-11-09</td>
-      <td>77</td>
-      <td>casado</td>
+      <td>78</td>
+      <td>BOGOTA</td>
       <td>masculino</td>
-      <td>jesus</td>
-      <td>bogota</td>
-      <td>especialista</td>
-      <td>4</td>
+      <td>masculino</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>Si</td>
+      <td>Si</td>
       <td>...</td>
       <td>no</td>
       <td>no</td>
-      <td>si</td>
-      <td>no</td>
-      <td>no</td>
       <td>no</td>
       <td>no</td>
       <td>si</td>
       <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
       <td>no</td>
     </tr>
     <tr>
       <th>3</th>
+      <td>Maira Fernández barraza</td>
       <td>1019032057</td>
-      <td>2023-08-25</td>
-      <td>1989-12-03</td>
-      <td>33</td>
-      <td>union libre</td>
+      <td>34</td>
+      <td>BOGOTA</td>
       <td>femenino</td>
-      <td>barranquilla</td>
-      <td>bogota</td>
-      <td>tecnologo</td>
-      <td>4</td>
+      <td>femenino</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>No</td>
       <td>...</td>
-      <td>si</td>
-      <td>no</td>
-      <td>no</td>
       <td>no</td>
       <td>si</td>
       <td>no</td>
@@ -660,30 +657,33 @@ depresion
       <td>no</td>
       <td>si</td>
       <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>si</td>
     </tr>
     <tr>
       <th>4</th>
+      <td>Francisco Javier Mora</td>
       <td>19250084</td>
-      <td>2023-08-24</td>
-      <td>1954-12-01</td>
-      <td>68</td>
-      <td>casado</td>
+      <td>69</td>
+      <td>BOGOTA</td>
       <td>masculino</td>
-      <td>medellin</td>
-      <td>bogota</td>
-      <td>profesional</td>
-      <td>6</td>
+      <td>masculino</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>No</td>
       <td>...</td>
       <td>si</td>
       <td>no</td>
-      <td>no</td>
-      <td>si</td>
-      <td>no</td>
       <td>si</td>
       <td>no</td>
       <td>no</td>
       <td>no</td>
       <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>si</td>
     </tr>
     <tr>
       <th>...</th>
@@ -710,41 +710,41 @@ depresion
       <td>...</td>
     </tr>
     <tr>
-      <th>982</th>
+      <th>948</th>
+      <td>Jhon Jairo arrubla arrubla</td>
       <td>7561381</td>
-      <td>2023-05-17</td>
-      <td>1970-07-09</td>
       <td>52</td>
-      <td>soltero</td>
+      <td>ARMENIA</td>
       <td>masculino</td>
-      <td>armenia</td>
-      <td>armenia</td>
-      <td>secundaria completa</td>
-      <td>2</td>
+      <td>masculino</td>
+      <td>Si</td>
+      <td>Entre 10 y 20 años</td>
+      <td>Si</td>
+      <td>No</td>
       <td>...</td>
-      <td>si</td>
-      <td>no</td>
-      <td>no</td>
       <td>no</td>
       <td>si</td>
       <td>no</td>
       <td>no</td>
       <td>si</td>
       <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
       <td>no</td>
     </tr>
     <tr>
-      <th>983</th>
+      <th>949</th>
+      <td>Amparo franco reyes</td>
       <td>41899611</td>
-      <td>2023-05-17</td>
-      <td>1954-11-10</td>
-      <td>68</td>
-      <td>union libre</td>
+      <td>67</td>
+      <td>ARMENIA</td>
       <td>femenino</td>
-      <td>armenia</td>
-      <td>armenia</td>
-      <td>primaria incompleta</td>
-      <td>2</td>
+      <td>femenino</td>
+      <td>Si</td>
+      <td>Menos de 10 años</td>
+      <td>Si</td>
+      <td>Si</td>
       <td>...</td>
       <td>no</td>
       <td>si</td>
@@ -753,85 +753,85 @@ depresion
       <td>si</td>
       <td>no</td>
       <td>no</td>
-      <td>si</td>
       <td>no</td>
+      <td>si</td>
       <td>no</td>
     </tr>
     <tr>
-      <th>984</th>
+      <th>950</th>
+      <td>Gabriel Gonzalez Rivera</td>
       <td>19317507</td>
-      <td>2023-05-17</td>
-      <td>1956-11-05</td>
-      <td>66</td>
-      <td>casado</td>
+      <td>67</td>
+      <td>ARMENIA</td>
       <td>masculino</td>
-      <td>bogota</td>
-      <td>circasia</td>
-      <td>especialista</td>
-      <td>3</td>
+      <td>masculino</td>
+      <td>Si</td>
+      <td>Menos de 10 años</td>
+      <td>No</td>
+      <td>No</td>
       <td>...</td>
       <td>si</td>
       <td>no</td>
-      <td>no</td>
-      <td>si</td>
-      <td>no</td>
       <td>si</td>
       <td>no</td>
       <td>no</td>
       <td>no</td>
       <td>no</td>
+      <td>no</td>
+      <td>si</td>
+      <td>si</td>
     </tr>
     <tr>
-      <th>985</th>
+      <th>951</th>
+      <td>jairo alberto ospina bolaño</td>
       <td>4398004</td>
-      <td>2023-05-16</td>
-      <td>1942-01-24</td>
-      <td>81</td>
-      <td>casado</td>
+      <td>83</td>
+      <td>ARMENIA</td>
       <td>masculino</td>
-      <td>montenegro</td>
-      <td>armenia</td>
-      <td>primaria completa</td>
-      <td>4</td>
+      <td>masculino</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>Si</td>
+      <td>Si</td>
       <td>...</td>
       <td>si</td>
       <td>no</td>
       <td>no</td>
-      <td>si</td>
-      <td>no</td>
-      <td>no</td>
       <td>no</td>
       <td>si</td>
       <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
       <td>no</td>
     </tr>
     <tr>
-      <th>986</th>
+      <th>952</th>
+      <td>maria elena parra sosa</td>
       <td>41557614</td>
-      <td>2023-05-16</td>
-      <td>1951-05-02</td>
       <td>72</td>
-      <td>casado</td>
+      <td>ARMENIA</td>
       <td>femenino</td>
-      <td>guateque</td>
-      <td>armenia</td>
-      <td>secundaria incompleta</td>
-      <td>3</td>
+      <td>femenino</td>
+      <td>Si</td>
+      <td>Entre 10 y 20 años</td>
+      <td>No</td>
+      <td>No</td>
       <td>...</td>
       <td>no</td>
       <td>si</td>
       <td>no</td>
-      <td>no</td>
-      <td>si</td>
-      <td>no</td>
       <td>si</td>
       <td>no</td>
       <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>si</td>
       <td>no</td>
     </tr>
   </tbody>
 </table>
-<p>987 rows × 156 columns</p>
+<p>953 rows × 180 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
