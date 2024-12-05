@@ -857,46 +857,6 @@ Name: sexo, Length: 953, dtype: object
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">15</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>         <span class="n">dx_2</span><span class="p">[</span><span class="s1">&#39;sexo_a&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">df_0</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">index</span><span class="p">])[</span><span class="s1">&#39;sexo&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="k">else</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">15</span>         <span class="n">dx_2</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">df_0</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">index</span><span class="p">])[</span><span class="n">name</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="k">for</span> <span class="n">name2</span> <span class="ow">in</span> <span class="n">dx</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="k">if</span> <span class="n">name2</span> <span class="o">==</span> <span class="s1">&#39;sexo&#39;</span><span class="p">:</span>
-
-<span class="nn">File ~\miniconda3\envs\venv_py\lib\site-packages\pandas\core\indexing.py:1153,</span> in <span class="ni">_LocationIndexer.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1150</span> <span class="n">axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span> <span class="ow">or</span> <span class="mi">0</span>
-<span class="g g-Whitespace">   </span><span class="mi">1152</span> <span class="n">maybe_callable</span> <span class="o">=</span> <span class="n">com</span><span class="o">.</span><span class="n">apply_if_callable</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1153</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_axis</span><span class="p">(</span><span class="n">maybe_callable</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
-
-<span class="nn">File ~\miniconda3\envs\venv_py\lib\site-packages\pandas\core\indexing.py:1716,</span> in <span class="ni">_iLocIndexer._getitem_axis</span><span class="nt">(self, key, axis)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1713</span> <span class="c1"># validate the location</span>
-<span class="g g-Whitespace">   </span><span class="mi">1714</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_integer</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1716</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_ixs</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
-
-<span class="nn">File ~\miniconda3\envs\venv_py\lib\site-packages\pandas\core\frame.py:3792,</span> in <span class="ni">DataFrame._ixs</span><span class="nt">(self, i, axis)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3790</span> <span class="c1"># irow</span>
-<span class="g g-Whitespace">   </span><span class="mi">3791</span> <span class="k">if</span> <span class="n">axis</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3792</span>     <span class="n">new_mgr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mgr</span><span class="o">.</span><span class="n">fast_xs</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3794</span>     <span class="c1"># if we are a copy, mark as such</span>
-<span class="g g-Whitespace">   </span><span class="mi">3795</span>     <span class="n">copy</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">new_mgr</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">and</span> <span class="n">new_mgr</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">base</span> <span class="ow">is</span> <span class="kc">None</span>
-
-<span class="nn">File ~\miniconda3\envs\venv_py\lib\site-packages\pandas\core\internals\managers.py:974,</span> in <span class="ni">BlockManager.fast_xs</span><span class="nt">(self, loc)</span>
-<span class="g g-Whitespace">    </span><span class="mi">972</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">973</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">974</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">975</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">ensure_wrapped_if_datetimelike</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">977</span> <span class="k">for</span> <span class="n">blk</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">978</span>     <span class="c1"># Such assignment may incorrectly coerce NaT to None</span>
-<span class="g g-Whitespace">    </span><span class="mi">979</span>     <span class="c1"># result[blk.mgr_locs] = blk._slice((slice(None), loc))</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

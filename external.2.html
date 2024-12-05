@@ -423,6 +423,7 @@ tension_elevada
 tension_alta_nivel_1
 tension_alta_nivel_2
 tension_crisis_hipertensiva
+tension_controlada
 </pre></div>
 </div>
 </div>
@@ -484,6 +485,87 @@ tension_crisis_hipertensiva
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;datos_CAIMEDvX.xlsx&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">PermissionError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">final_df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;datos_CAIMEDvX.xlsx&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~\miniconda3\envs\venv_py\lib\site-packages\pandas\core\generic.py:2345,</span> in <span class="ni">NDFrame.to_excel</span><span class="nt">(self, excel_writer, sheet_name, na_rep, float_format, columns, header, index, index_label, startrow, startcol, engine, merge_cells, inf_rep, freeze_panes, storage_options, engine_kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2332</span> <span class="kn">from</span> <span class="nn">pandas.io.formats.excel</span> <span class="kn">import</span> <span class="n">ExcelFormatter</span>
+<span class="g g-Whitespace">   </span><span class="mi">2334</span> <span class="n">formatter</span> <span class="o">=</span> <span class="n">ExcelFormatter</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2335</span>     <span class="n">df</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2336</span>     <span class="n">na_rep</span><span class="o">=</span><span class="n">na_rep</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2343</span>     <span class="n">inf_rep</span><span class="o">=</span><span class="n">inf_rep</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2344</span> <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2345</span> <span class="n">formatter</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2346</span>     <span class="n">excel_writer</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2347</span>     <span class="n">sheet_name</span><span class="o">=</span><span class="n">sheet_name</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2348</span>     <span class="n">startrow</span><span class="o">=</span><span class="n">startrow</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2349</span>     <span class="n">startcol</span><span class="o">=</span><span class="n">startcol</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2350</span>     <span class="n">freeze_panes</span><span class="o">=</span><span class="n">freeze_panes</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2351</span>     <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2352</span>     <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2353</span>     <span class="n">engine_kwargs</span><span class="o">=</span><span class="n">engine_kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2354</span> <span class="p">)</span>
+
+<span class="nn">File ~\miniconda3\envs\venv_py\lib\site-packages\pandas\io\formats\excel.py:946,</span> in <span class="ni">ExcelFormatter.write</span><span class="nt">(self, writer, sheet_name, startrow, startcol, freeze_panes, engine, storage_options, engine_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">942</span>     <span class="n">need_save</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">    </span><span class="mi">943</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">944</span>     <span class="c1"># error: Cannot instantiate abstract class &#39;ExcelWriter&#39; with abstract</span>
+<span class="g g-Whitespace">    </span><span class="mi">945</span>     <span class="c1"># attributes &#39;engine&#39;, &#39;save&#39;, &#39;supported_extensions&#39; and &#39;write_cells&#39;</span>
+<span class="ne">--&gt; </span><span class="mi">946</span>     <span class="n">writer</span> <span class="o">=</span> <span class="n">ExcelWriter</span><span class="p">(</span>  <span class="c1"># type: ignore[abstract]</span>
+<span class="g g-Whitespace">    </span><span class="mi">947</span>         <span class="n">writer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">948</span>         <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">949</span>         <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">950</span>         <span class="n">engine_kwargs</span><span class="o">=</span><span class="n">engine_kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">951</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">952</span>     <span class="n">need_save</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">954</span> <span class="k">try</span><span class="p">:</span>
+
+<span class="nn">File ~\miniconda3\envs\venv_py\lib\site-packages\pandas\io\excel\_openpyxl.py:61,</span> in <span class="ni">OpenpyxlWriter.__init__</span><span class="nt">(self, path, engine, date_format, datetime_format, mode, storage_options, if_sheet_exists, engine_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span> <span class="kn">from</span> <span class="nn">openpyxl.workbook</span> <span class="kn">import</span> <span class="n">Workbook</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span> <span class="n">engine_kwargs</span> <span class="o">=</span> <span class="n">combine_kwargs</span><span class="p">(</span><span class="n">engine_kwargs</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">61</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span>     <span class="n">path</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span>     <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">64</span>     <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span>     <span class="n">if_sheet_exists</span><span class="o">=</span><span class="n">if_sheet_exists</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span>     <span class="n">engine_kwargs</span><span class="o">=</span><span class="n">engine_kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">67</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span> <span class="c1"># ExcelWriter replaced &quot;a&quot; by &quot;r+&quot; to allow us to first read the excel file from</span>
+<span class="g g-Whitespace">     </span><span class="mi">70</span> <span class="c1"># the file and later write to it</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span> <span class="k">if</span> <span class="s2">&quot;r+&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">:</span>  <span class="c1"># Load from existing workbook</span>
+
+<span class="nn">File ~\miniconda3\envs\venv_py\lib\site-packages\pandas\io\excel\_base.py:1263,</span> in <span class="ni">ExcelWriter.__init__</span><span class="nt">(self, path, engine, date_format, datetime_format, mode, storage_options, if_sheet_exists, engine_kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1259</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handles</span> <span class="o">=</span> <span class="n">IOHandles</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1260</span>     <span class="n">cast</span><span class="p">(</span><span class="n">IO</span><span class="p">[</span><span class="nb">bytes</span><span class="p">],</span> <span class="n">path</span><span class="p">),</span> <span class="n">compression</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;compression&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+<span class="g g-Whitespace">   </span><span class="mi">1261</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1262</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">ExcelWriter</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1263</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1264</span>         <span class="n">path</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span> <span class="n">is_text</span><span class="o">=</span><span class="kc">False</span>
+<span class="g g-Whitespace">   </span><span class="mi">1265</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1266</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cur_sheet</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1268</span> <span class="k">if</span> <span class="n">date_format</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File ~\miniconda3\envs\venv_py\lib\site-packages\pandas\io\common.py:872,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">863</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">864</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">865</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">868</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">869</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">871</span>         <span class="c1"># Binary mode</span>
+<span class="ne">--&gt; </span><span class="mi">872</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">873</span>     <span class="n">handles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">875</span> <span class="c1"># Convert BytesIO or file objects passed with an encoding</span>
+
+<span class="ne">PermissionError</span>: [Errno 13] Permission denied: &#39;datos_CAIMEDvX.xlsx&#39;
 </pre></div>
 </div>
 </div>
